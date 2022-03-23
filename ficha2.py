@@ -98,7 +98,7 @@ for k in N:
 import matplotlib.pyplot as plt
 plt.plot(N,Y,'o')
 
-
-
-
-
+n=2
+while abs(Z(n)-Z(n-1))>=10**(-10):
+    n+=1
+print(n)

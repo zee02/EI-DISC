@@ -80,9 +80,25 @@ plt.plot(T,Y,"o")
 plt.plot()
 
 def Z(n):
-    for i in range(1,n+1):
-        soma+=(0.5)*K
+    soma=0
+    for k in range(1,n+1):
+        soma+=(0.5)**k
     return soma
+
+#aula 4 ---------
+import numpy as np
+N=np.arange(1,21)
+#não é possível definir Y=Z(N) porque 
+#a função Z espera como input um escalar(não um vetor)
+
+Y=np.array([])
+for k in N:
+    Y=np.append(Y,Z(k))
+
+import matplotlib.pyplot as plt
+plt.plot(N,Y,'o')
+
+
 
 
 

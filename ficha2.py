@@ -102,3 +102,20 @@ n=2
 while abs(Z(n)-Z(n-1))>=10**(-10):
     n+=1
 print(n)
+
+
+#ex6
+
+nota_PE1 = float(input("Insira a nota da 1ª prova escrita: "))
+nota_PE2 = float(input("Insira a nota da 2ª prova escrita: "))
+nota_TP1 = float(input("Insira a nota da 1º teste prático: "))
+nota_TP2 = float(input("Insira a nota da 2º teste prático: "))
+if nota_PE2<8.0 or nota_TP2<8.0:
+    print("Não atingiu o mínimo numa das componentes.")
+else:
+    nota_CT=max(0.3*nota_PE1+0.7*nota_PE2, nota_PE2)
+    nota_CP=max(0.3*nota_TP1+0.7*nota_TP2, nota_TP2)
+    print("A classificação final na UC é ", 0.4*nota_CP+0.6*nota_CT)
+    
+    
+#-----ficha 3------

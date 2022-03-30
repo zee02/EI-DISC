@@ -52,18 +52,38 @@ C=A^B
 print(len((A|C)&B))
 
 #ex6
+
 #a
-#teoria de conjuntos e operações de conjuntos
-P=set(range(2,411,2)) #pares
-M7=set(range(7,411,7)) #multiplos de 7
-A=P-M7
+A=set()
+for i in range(1, 411):
+    if i%2==0 & i%7!=0:
+        A.add(i)
 print(len(A))
 
 #b
-for i in range(1, 410):
+QP=set()
+for i in range(1, 21):
+    QP.add(i**2)
+print(QP)
+    
+#c
+M3=set(range(3,411,3)) #multiplos de 3
+C=M3-QP
+print(C)
 
+#ex7
+L1 = ["Futebol", "Ioga", "Cinema", "Futebol", "Concertos", "Cinema", "Concertos"]
 
-
+#ex8
+B={1,2,3,4}
+P=[{1},{2},{3,4}]
+if P[0]|P[1]|P[2]==B:
+    if P[0]&P[1]==set() and P[0]&P[2]==set() and P[0]&P[3]==set():
+        print("É partição de B")
+    else:
+        print("Não é partição porque a interseção ")
+else:
+    print("Não é partição porque a união não deu B")
 
 
 

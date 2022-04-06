@@ -86,6 +86,38 @@ else:
     print("Não é partição porque a união não deu B")
 
 
+#ex9
+def Particao(P):
+    I=set()
+    for i in range(0, len(P)):
+        for j in range(i+1, len(P)):
+            I= I|(P[i]&P[j])
+    if I!=set():
+        print("Não é partição")
+    else:
+        U=set()
+        for A in P:
+            U=U|A
+        print("É partição do conjunto ", U)    
+P=[{5}, {2}, {3,4}]
+Particao(P)
+
+def particao(P):
+    i = set()
+    for i in range(0, len(P)):
+        for j in range(i+1, len(P)):
+            if P[i]&P[j]!=set():
+                print("Não é partição")
+                return
+    U=set()
+    for A in P:
+        U=U|A
+    print("É partição do conjunto " ,U)
+particao(P)
+            
+    
+
+
 
 
 

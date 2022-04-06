@@ -114,17 +114,3 @@ def particao(P):
         U=U|A
     print("É partição do conjunto " ,U)
 particao(P)
-            
-    
-
-
-
-
-
-
-
-
-
-
-
-

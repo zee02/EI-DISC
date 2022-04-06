@@ -41,3 +41,26 @@ def Bissexto(x):
             print("Não é bissexto")
     else:
         print("é bissexto")
+
+#ex4
+#op1 recursiva chamando a si propria
+def F(n):
+    if n==1 or n==2:
+        return 1
+    elif n>=3:
+        return F(n-1)+F(n-2)
+    else:
+        print("Insira um inteiro positivo")
+        
+F(6)
+
+#op2 definir F(n) sem chamar a si propria
+def F(n):
+    if n==1 or n==2:
+        return 1
+    else:
+        x=1
+        y=1
+        for i in range(3,n+1):
+            z=x+y
+        return z

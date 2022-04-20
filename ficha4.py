@@ -64,3 +64,11 @@ def F(n):
         for i in range(3,n+1):
             z=x+y
         return z
+    
+#ex5
+def soma_Fib(n):
+    soma=0
+    for i in range(1,n+1):
+        soma+=F(i)
+    return soma
+soma_Fib(6)

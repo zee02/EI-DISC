@@ -63,6 +63,8 @@ def F(n):
         y=1
         for i in range(3,n+1):
             z=x+y
+            x=y
+            y=z
         return z
     
 #ex5
@@ -102,3 +104,23 @@ while abs(Q-nouro)>10**-10:
     Y.append(Q)
     ###
 plt.plot(X,Y,'*')
+
+#ex10
+
+ns=input("Insira o número de serie da nota: ")
+letra=ns[0]
+numeros=ns[1:len(ns)]
+soma=0
+for i in range(0,len(numeros)):
+    soma+=int(numeros[i])
+letras=['R','S','T', 'U', 'M', 'N']
+Beta=letras.index(letra)
+
+soma+=Beta # beta+x1+x2+..+x10+d
+#a soma e o 0 são congruentes ao modulo 9
+#ou seja soma%9==0%9 logo soma tem de ser multiplo de 9
+
+if soma%9==0:
+    print("A nota é válida!")
+else:
+    print("A nota não é válida!")

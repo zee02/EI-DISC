@@ -72,3 +72,33 @@ def soma_Fib(n):
         soma+=F(i)
     return soma
 soma_Fib(6)
+
+#ex7
+import math
+nouro=(1+math.sqrt(5))/2
+n=2
+Q=1
+while abs(Q-nouro)>10**-10:
+    n+=1
+    Q=F(n)/F(n-1)
+print("O valor aproximado obtido é: ", Q)
+#ou
+print(f'O valor aproximado solicitado é (Q) e é atingido quando n={n}')
+
+#b) representação gráfica
+import  matplotlib.pyplot as plt
+
+nouro=(1+math.sqrt(5))/2
+n=2
+Q=1
+X=[2] #iniciar a lista dos objetos começando por n=2
+#como array X=np.array([2])
+Y=[1] #iniciar a lista das imagins com a primeira
+###
+while abs(Q-nouro)>10**-10:
+    n+=1
+    Q=F(n)/F(n-1)
+    X.append(n)
+    Y.append(Q)
+    ###
+plt.plot(X,Y,'*')

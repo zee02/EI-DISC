@@ -124,3 +124,100 @@ if soma%9==0:
     print("A nota é válida!")
 else:
     print("A nota não é válida!")
+    
+#aula8
+#1A)
+import numpy as np
+MR=np.array([[1,0,1,0], [1,0,1,0], [1,1,0,0], [0,0,0,1]])
+print(MR)
+
+
+#1B) A relação inversa de R^-1{(aj,ai) | (ai,aj) in R}
+MRinv=MR.T
+print("A matriz da relação inversa é: ", MRinv)
+
+#1C)
+MR2 = MR@MR
+
+def um(M):
+    [l,c] = M.shape
+    for i in range(0,l):
+        for j in range(0,c):
+            if M[i,j]!=0:
+                M[i,j] = 1
+    return M
+MR2=um(MR2)
+print("A matriz da relação R^2 é: ", MR2)
+
+#ou
+MR2 = MR@MR
+MR2[MR2!=0]=1
+
+
+MR3=MR2@MR
+MR3[MR3!=0]=1
+print("A matriz da relação R^3 é: ", MR3)
+
+#1D)
+print("A relação R não é reflexiva porque existem entradas nulas na diagonal principal")
+print("R não é simétrica porque, por ex, (2,1) in R mas (1,2) not in R")
+print("Não é antissimétrica porque (1,3) in R e (3,1) in R mas 1 não é igual a 3")
+
+#1E)
+#fecho reflexivo
+MRefR= MR + np.eye(4)
+MRefR=um(MRefR)
+
+#ex4
+def is_reflexiva(M):
+    [l,c]=M.shape
+    contador=0
+    for i in range(0,l):
+        contador+=1
+    if contador!=l:
+        return False
+    else:
+        return True
+    
+#ou 
+
+def is_reflexiva(M):
+    [l,c]=M.shape
+    for i in range(0,l):
+        if M[i,i] == 0:
+            return False
+    return True
+
+#ex4B)
+
+def is_simetrica(M):
+    [l,c]=M.shape
+    for i in range(0,l):
+        for j in range(i+1,c):
+            if M[i,j]!=M[j,i]:
+                return False
+        return True
+#ou
+def is_simetrica(M):
+    return np.array_equal(M,M.T)
+
+#ou
+def is_simetrica(M):
+    return (M==M.T).all()
+
+#ex4C)
+
+def is_transitiva(M):
+    A=M+M@M
+    A[A!=0]=1
+    return (M==A).all()
+
+#ou calculando o fecho transitivo e comparando com MR
+
+def is_transitiva(M):
+    [l,c]=M.shape
+    A=M #A será a matriz do fecho transitivo
+    for i in range(2,l+1):
+        A=A+np.linalg.matrix_power(MR,i)
+    A[A!=0]=1
+    return (M==A).all()
